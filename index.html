@@ -106,10 +106,10 @@ h2.stitle em{color:var(--gold);font-style:italic;}
 
 /* ADVANTAGES */
 .advs{display:flex;flex-direction:column;gap:0.8rem;margin-top:2.5rem;}
-.adv{display:grid;grid-template-columns:4px 1fr;gap:1.5rem;padding:1.3rem 1.5rem;border:1px solid var(--lineg);background:rgba(22,56,40,0.4);transition:all 0.25s;}
+.adv{display:flex;align-items:stretch;gap:1.5rem;padding:1.3rem 1.5rem;border:1px solid var(--lineg);background:rgba(22,56,40,0.4);transition:all 0.25s;}
 .adv:hover{border-color:var(--gold);background:rgba(200,146,58,0.06);}
-.adv-bar{background:var(--gold);border-radius:2px;}
-.adv-body{font-size:0.9rem;color:rgba(245,239,228,0.82);line-height:1.8;}
+.adv-bar{flex-shrink:0;width:4px;background:var(--gold);border-radius:2px;}
+.adv-body{flex:1;min-width:0;font-size:0.9rem;color:rgba(245,239,228,0.82);line-height:1.8;}
 .adv-body strong{color:var(--gold2);}
 
 /* APPROACH 2-COL */
@@ -321,7 +321,7 @@ h2.stitle em{color:var(--gold);font-style:italic;}
     <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--cream);margin-bottom:1rem;">Nedbank Group — Group IT Transformation Office</h3>
     <p style="font-size:0.95rem;color:rgba(245,239,228,0.85);line-height:1.85;margin-bottom:1.2rem;">From 2015 to 2018, I held the role of Head: Change &amp; Transformation within Nedbank's Group IT Transformation Office — sitting across the bank's entire portfolio of technology change initiatives as the transformation executive responsible for change governance, methodology, and value realisation. This was not an HC business partner role supporting a technology function. It was a transformation leadership mandate embedded inside one of South Africa's most complex IT modernisation agendas.</p>
     <p style="font-size:0.95rem;color:rgba(245,239,228,0.85);line-height:1.85;margin-bottom:1.2rem;">The portfolio I governed spanned core banking modernisation, application rationalisation, workforce management and the compliance programme change management office — covering staffing models, change methodology standards and practitioner governance across all run and change programmes. On core banking specifically, the programme had its own delivery structure and leadership. My role was portfolio-level: oversight, adoption monitoring and value acceleration, with committee-level decision rights on operating model changes as they affected the broader organisation.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem;min-width:0;">
       <div style="padding:1rem;background:rgba(12,34,24,0.7);border:1px solid var(--lineg);">
         <div style="font-size:0.7rem;color:var(--gold);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;">Portfolio scope</div>
         <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;">Core banking modernisation, application rationalisation, workforce management, compliance programme change office — change governance and methodology across all Group IT programmes</div>
