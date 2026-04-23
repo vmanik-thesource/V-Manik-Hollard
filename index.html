@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Vikash Manik — Head: People Strategy & Transformation | Hollard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --forest:#0C2218;--forest2:#102C20;--forest3:#163828;
+  --emerald:#2E8B57;--gold:#C8923A;--gold2:#E8B86D;
+  --cream:#F5EFE4;--muted:#8BA898;
+  --line:rgba(200,146,58,0.2);--lineg:rgba(46,139,87,0.2);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--forest);color:var(--cream);font-family:'DM Sans',sans-serif;overflow-x:hidden;line-height:1.75;}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--emerald),var(--gold));width:0%;z-index:9999;transition:width 0.1s linear;}
+
+/* NAV */
+nav{position:fixed;top:3px;left:0;right:0;z-index:999;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 5rem;background:rgba(12,34,24,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--line);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--cream);}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:4rem;padding:8rem 5rem 5rem;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 100% 50%,rgba(46,139,87,0.12) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 10% 90%,rgba(200,146,58,0.08) 0%,transparent 60%),linear-gradient(170deg,var(--forest) 0%,#0A1F15 100%);}
+.hero-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,var(--line) 0,var(--line) 1px,transparent 0,transparent 50%);background-size:30px 30px;opacity:0.4;mask-image:radial-gradient(ellipse 70% 80% at 80% 50%,black 20%,transparent 80%);}
+.hero-left{position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.7rem;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+h1.hero-name{font-family:'Playfair Display',serif;font-size:clamp(3rem,5.5vw,5.5rem);font-weight:800;line-height:1.05;color:var(--cream);opacity:0;animation:fadeUp 0.8s 0.35s forwards;}
+h1.hero-name em{color:var(--gold);font-style:italic;}
+.hero-title{margin-top:1.2rem;font-size:1rem;font-weight:500;color:var(--muted);opacity:0;animation:fadeUp 0.8s 0.5s forwards;}
+.hero-rule{width:60px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.8rem 0;opacity:0;animation:fadeUp 0.8s 0.6s forwards;}
+.hero-lead{max-width:500px;font-size:1.02rem;color:rgba(245,239,228,0.72);line-height:1.85;opacity:0;animation:fadeUp 0.8s 0.7s forwards;}
+.hero-btns{display:flex;gap:1rem;margin-top:2.5rem;opacity:0;animation:fadeUp 0.8s 0.9s forwards;}
+.btn{padding:0.85rem 2rem;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s ease;display:inline-block;}
+.btn-primary{background:var(--gold);color:var(--forest);}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--cream);border:1px solid rgba(245,239,228,0.25);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-right{position:relative;z-index:1;opacity:0;animation:fadeUp 0.8s 1s forwards;}
+.stat-panel{border:1px solid var(--line);background:rgba(22,56,40,0.5);backdrop-filter:blur(10px);padding:2.5rem;}
+.stat-panel-title{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid var(--line);}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.stat-box{padding:1.2rem;background:rgba(12,34,24,0.6);border:1px solid var(--lineg);}
+.stat-box-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gold);line-height:1;margin-bottom:0.3rem;}
+.stat-box-label{font-size:0.72rem;color:var(--muted);letter-spacing:0.05em;}
+.stat-quote{margin-top:1.5rem;padding:1.2rem 1.5rem;border-left:2px solid var(--gold);background:rgba(200,146,58,0.06);font-size:0.85rem;color:rgba(245,239,228,0.8);font-style:italic;line-height:1.7;}
+
+/* SECTIONS */
+section{padding:6.5rem 5rem;position:relative;}
+section:nth-child(even){background:var(--forest2);}
+.section-tag{display:flex;align-items:center;gap:0.6rem;font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:0.8rem;}
+.section-tag::before{content:'';width:16px;height:1px;background:var(--gold);}
+h2.stitle{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:700;line-height:1.2;color:var(--cream);margin-bottom:1rem;}
+h2.stitle em{color:var(--gold);font-style:italic;}
+.sintro{font-size:1rem;color:var(--muted);max-width:680px;line-height:1.9;margin-bottom:3.5rem;}
+
+/* TABLES */
+.fact-table{width:100%;border-collapse:collapse;margin-bottom:3rem;}
+.fact-table td{padding:1rem 1.2rem;font-size:0.88rem;border-bottom:1px solid var(--lineg);vertical-align:top;}
+.fact-table tr:hover td{background:rgba(46,139,87,0.05);}
+.fact-table .flabel{color:var(--gold2);font-weight:600;font-size:0.78rem;letter-spacing:0.06em;min-width:170px;}
+.fact-table .fval{color:rgba(245,239,228,0.85);}
+
+/* OBJ CARDS — repurposed as open questions */
+.obj-cards{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:3rem;}
+.obj-card{display:grid;grid-template-columns:50px 1fr;border:1px solid var(--lineg);background:rgba(22,56,40,0.3);transition:all 0.25s ease;}
+.obj-card:hover{border-color:rgba(200,146,58,0.4);background:rgba(200,146,58,0.05);}
+.obj-num-col{background:rgba(22,56,40,0.5);display:flex;align-items:center;justify-content:center;border-right:1px solid var(--lineg);font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold);opacity:0.5;}
+.obj-text-col{padding:1.1rem 1.4rem;font-size:0.9rem;color:rgba(245,239,228,0.8);}
+
+/* HIGHLIGHT BOXES */
+.hl{border-left:3px solid var(--gold);background:rgba(200,146,58,0.07);padding:1.4rem 2rem;margin:2rem 0;font-size:0.95rem;color:rgba(245,239,228,0.85);line-height:1.85;}
+.hl strong{color:var(--gold2);}
+.hl-green{border-left:3px solid var(--emerald);background:rgba(46,139,87,0.07);padding:1.4rem 2rem;margin:2rem 0;font-size:0.95rem;color:rgba(245,239,228,0.85);line-height:1.85;}
+.hl-green strong{color:#5EBA8A;}
+
+/* PRINCIPLE CARDS */
+.principle-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:3rem;}
+.pc{padding:1.8rem 2rem;border:1px solid var(--lineg);background:rgba(16,44,32,0.6);transition:all 0.3s ease;position:relative;}
+.pc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;}
+.pc:hover::after{transform:scaleX(1);}
+.pc:hover{border-color:rgba(200,146,58,0.3);}
+.pc-num{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--gold);letter-spacing:0.15em;margin-bottom:0.7rem;}
+.pc-title{font-size:0.88rem;font-weight:600;color:var(--cream);margin-bottom:0.6rem;}
+.pc-text{font-size:0.84rem;color:var(--muted);line-height:1.75;}
+.pc-insight{margin-top:0.8rem;padding:0.5rem 0.8rem;background:rgba(200,146,58,0.06);border-left:2px solid rgba(200,146,58,0.4);font-size:0.78rem;color:var(--gold2);font-style:italic;}
+
+/* MAP TABLE */
+.map-table{width:100%;border-collapse:collapse;}
+.map-table th{font-family:'DM Mono',monospace;font-size:0.6rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);padding:0.9rem 1.2rem;text-align:left;border-bottom:2px solid var(--lineg);}
+.map-table th:last-child{color:var(--gold);}
+.map-table td{padding:1.1rem 1.2rem;font-size:0.86rem;border-bottom:1px solid var(--lineg);vertical-align:top;}
+.map-table tr:hover td{background:rgba(46,139,87,0.05);}
+.map-table .need{color:var(--cream);font-weight:600;}
+.map-table .generic{color:var(--muted);font-style:italic;}
+.map-table .vikash{color:var(--gold2);font-weight:500;}
+
+/* ADVANTAGES */
+.advs{display:flex;flex-direction:column;gap:0.8rem;margin-top:2.5rem;}
+.adv{display:grid;grid-template-columns:4px 1fr;gap:1.5rem;padding:1.3rem 1.5rem;border:1px solid var(--lineg);background:rgba(22,56,40,0.4);transition:all 0.25s;}
+.adv:hover{border-color:var(--gold);background:rgba(200,146,58,0.06);}
+.adv-bar{background:var(--gold);border-radius:2px;}
+.adv-body{font-size:0.9rem;color:rgba(245,239,228,0.82);line-height:1.8;}
+.adv-body strong{color:var(--gold2);}
+
+/* APPROACH 2-COL */
+.approach-intro{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem;}
+.approach-card{padding:2rem;border:1px solid var(--lineg);background:rgba(16,44,32,0.5);}
+.approach-card-title{font-size:0.78rem;font-weight:700;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem;}
+.approach-card-text{font-size:0.88rem;color:var(--muted);line-height:1.8;}
+
+/* PHASES */
+.phases{display:flex;flex-direction:column;gap:2px;}
+.phase{display:grid;grid-template-columns:180px 1fr;border:1px solid var(--lineg);background:rgba(16,44,32,0.4);transition:all 0.3s;}
+.phase:hover{border-color:rgba(200,146,58,0.35);}
+.phase-label-col{background:var(--forest3);padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid var(--lineg);}
+.pl-tag{font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:0.5rem;}
+.pl-period{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--cream);line-height:1.2;}
+.pl-commit{margin-top:0.6rem;font-family:'DM Mono',monospace;font-size:0.56rem;color:var(--muted);letter-spacing:0.08em;line-height:1.4;}
+.phase-body-col{padding:2rem 2.5rem;}
+.ph-title{font-size:0.95rem;font-weight:600;color:var(--cream);margin-bottom:0.3rem;}
+.ph-framing{font-size:0.82rem;color:var(--gold2);font-style:italic;margin-bottom:1rem;}
+.ph-items{display:flex;flex-direction:column;gap:0.55rem;}
+.ph-item{display:flex;align-items:flex-start;gap:0.8rem;font-size:0.84rem;color:var(--muted);}
+.ph-dot{width:4px;height:4px;border-radius:50%;background:var(--emerald);margin-top:0.65rem;flex-shrink:0;}
+.ph-del{margin-top:1.2rem;padding:0.6rem 1rem;background:rgba(200,146,58,0.08);border-left:2px solid var(--gold);font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:0.03em;}
+
+/* METRICS */
+.met-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--lineg);border:1px solid var(--lineg);margin-bottom:2.5rem;}
+.met-card{background:var(--forest2);padding:1.8rem 1.5rem;text-align:center;transition:background 0.2s;}
+.met-card:hover{background:rgba(200,146,58,0.07);}
+.met-label{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.8rem;}
+.met-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1.1;margin-bottom:0.4rem;}
+.met-desc{font-size:0.73rem;color:var(--muted);line-height:1.5;}
+
+/* CLOSING */
+#closing{text-align:center;padding:7rem 5rem;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(31,92,58,0.25) 0%,transparent 70%),var(--forest) !important;}
+.closing-q{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3vw,2.4rem);font-weight:700;font-style:italic;color:var(--cream);line-height:1.5;max-width:800px;margin:0 auto 3rem;}
+.closing-q em{color:var(--gold);font-style:normal;}
+.cred-row{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;margin:3rem 0;}
+.cred-pill{padding:1rem 2rem;border:1px solid var(--lineg);background:rgba(22,56,40,0.5);text-align:center;}
+.cred-val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);margin-bottom:0.2rem;}
+.cred-lbl{font-size:0.68rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+.contact-strip{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:3rem;font-size:0.82rem;color:var(--muted);}
+.contact-strip a{color:var(--gold);text-decoration:none;}
+.contact-strip a:hover{color:var(--gold2);}
+.sep{color:rgba(200,146,58,0.3);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+
+/* RESPONSIVE */
+@media(max-width:1050px){
+  nav{padding:1rem 1.5rem;}.nav-links{display:none;}
+  #hero{grid-template-columns:1fr;padding:7rem 2rem 4rem;}.hero-right{display:none;}
+  section{padding:4.5rem 2rem;}
+  .principle-grid,.approach-intro{grid-template-columns:1fr;}
+  .met-grid{grid-template-columns:1fr 1fr;}
+  .phase{grid-template-columns:1fr;}
+  .phase-label-col{border-right:none;border-bottom:1px solid var(--lineg);padding:1.2rem;}
+  .map-table,.fact-table{display:block;overflow-x:auto;}
+  #closing{padding:4rem 2rem;}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<nav>
+  <div class="nav-logo">Vikash Manik <span>&times;</span> Hollard</div>
+  <ul class="nav-links">
+    <li><a href="#context">Hollard</a></li>
+    <li><a href="#thinking">How I Think</a></li>
+    <li><a href="#positioning">Why Vikash</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#metrics">Measures</a></li>
+    <li><a href="#closing">Closing</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero" style="padding-top:8rem;">
+  <div class="hero-bg"></div><div class="hero-pattern"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Candidate Brief — Head: People Strategy &amp; Transformation</div>
+    <h1 class="hero-name">Vikash<br><em>Manik</em></h1>
+    <p class="hero-title">Global Executive · Organisational Design · Enterprise Change · Workforce Transformation</p>
+    <div class="hero-rule"></div>
+    <p class="hero-lead">Hollard's next chapter is not only a people story. It is a business transformation story — in an industry being structurally reshaped by AI, embedded insurance and digital-first competition. This brief shares how I think about building the organisational capability to compete in that environment, and why People Strategy sits at the centre of it.</p>
+    <div class="hero-btns">
+      <a href="#thinking" class="btn btn-primary">How I Think</a>
+      <a href="#approach" class="btn btn-outline">The Approach</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-panel">
+      <div class="stat-panel-title">// At a Glance</div>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="stat-box-num">40+</div><div class="stat-box-label">Countries led concurrently</div></div>
+        <div class="stat-box"><div class="stat-box-num">20yr</div><div class="stat-box-label">Executive people leadership</div></div>
+        <div class="stat-box"><div class="stat-box-num">6×</div><div class="stat-box-label">Operating model designs</div></div>
+        <div class="stat-box"><div class="stat-box-num">R490m</div><div class="stat-box-label">Workforce savings delivered</div></div>
+      </div>
+      <div class="stat-quote">"Top HR Professional SA — World HRD Congress 2024 · Oncon Top 50 L&D Teams Globally · Africa HRD Employer Branding Award 2022"</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — HOLLARD CONTEXT
+══════════════════════════════════════ -->
+<section id="context">
+  <div class="section-tag">01 — The Real Context</div>
+  <h2 class="stitle reveal">Two Transformations.<br><em>One Moment.</em></h2>
+  <p class="sintro reveal">The insurance industry is being structurally reshaped. AI-driven underwriting, embedded insurance distributed through non-traditional channels, digital-first competitors with no legacy infrastructure, and platform models that remove the intermediary entirely — these are not future risks. They are present realities that are already redrawing the competitive map. Hollard's response to that disruption is what makes the People Strategy role genuinely consequential. This is not a conversation about HC in isolation. It is a conversation about whether Hollard builds the organisational capability — the leadership agility, the workforce adaptability, the cultural resilience — to compete and win in a fundamentally different industry.</p>
+
+  <div class="hl reveal"><strong>The People Strategy agenda at Hollard is therefore dual:</strong> it must support the <strong>transformation of the HC function itself</strong> — deepening its strategic influence and analytical capability — while simultaneously serving as a <strong>primary enabler of the broader business transformation</strong> Hollard needs to execute. These are not sequential. They must happen together, with the same urgency.</div>
+
+  <table class="fact-table reveal">
+    <tbody>
+      <tr><td class="flabel">Founded</td><td class="fval">1980 — South Africa's largest privately-owned insurance group, built on inclusion, shared value and purpose over 45 years</td></tr>
+      <tr><td class="flabel">Group CEO</td><td class="fval">Willie Lategan — long-term conviction, "profit through purpose," bold pan-African ambition</td></tr>
+      <tr><td class="flabel">Global Backer</td><td class="fval">Tokio Marine — international scale and governance discipline; Hollard is not a local insurer, it is a global institution with African roots</td></tr>
+      <tr><td class="flabel">African Footprint</td><td class="fval">10 markets via HINT — Mozambique, Namibia, Botswana, Ghana, Zambia, Lesotho, Kenya, Uganda, Tanzania, plus SA; each market a distinct competitive and regulatory environment</td></tr>
+      <tr><td class="flabel">Industry Disruption Signal</td><td class="fval">Investments in Naked, Dotsure and Simply Financial Services — Hollard's leadership has read the disruption and is actively backing digital-first, AI-native competitors to understand what's coming</td></tr>
+      <tr><td class="flabel">Competitive Pressure</td><td class="fval">Embedded insurance via retail and fintech platforms, AI-driven pricing and claims, digital-direct distribution — each eroding traditional distribution models and forcing business model rethinking</td></tr>
+      <tr><td class="flabel">Brand Repositioning</td><td class="fval">Active rebrand underway — intermediary-centric, human-first, purpose-led; the brand and the business model must evolve in parallel</td></tr>
+      <tr><td class="flabel">The Business Imperative</td><td class="fval">Building the workforce agility, leadership capability and organisational adaptability to compete through industry disruption — while preserving the purpose-driven identity that defines Hollard</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="stitle reveal" style="font-size:1.7rem;margin-bottom:1.3rem;">The Questions That Shape the Strategy</h2>
+  <p style="font-size:0.9rem;color:var(--muted);max-width:660px;margin-bottom:1.5rem;" class="reveal">Before forming any view on what the People Strategy should be, these are the business and organisational questions I'd want to explore deeply with the CPO, CEO and Exco. They are questions about the business, not about HR.</p>
+  <div class="obj-cards reveal">
+    <div class="obj-card"><div class="obj-num-col">Q</div><div class="obj-text-col">How is Hollard's leadership team thinking about business model evolution — and what organisational capabilities does the board believe are most critical to build in the next three years to compete with digital-first and embedded insurance players?</div></div>
+    <div class="obj-card"><div class="obj-num-col">Q</div><div class="obj-text-col">What does the AI and automation transition look like from inside the business — where is it creating real workforce anxiety, and where is it creating genuine opportunity that the organisation hasn't yet mobilised around?</div></div>
+    <div class="obj-card"><div class="obj-num-col">Q</div><div class="obj-text-col">As Hollard integrates new HINT acquisitions across Africa, what leadership and cultural integration challenges are emerging — and how is the business currently navigating the tension between global coherence and local relevance?</div></div>
+    <div class="obj-card"><div class="obj-num-col">Q</div><div class="obj-text-col">Where do Hollard's leaders see the greatest capability gaps between where the organisation is today and where the business strategy requires it to be — and which of those gaps feels most urgent?</div></div>
+    <div class="obj-card"><div class="obj-num-col">Q</div><div class="obj-text-col">How does HC currently show up as a participant in business decisions — and what would it look like for HC to be a shaping voice in those conversations rather than a responding one?</div></div>
+  </div>
+
+  <div class="hl reveal"><strong>Why business questions first:</strong> The most common failure mode in people strategy is designing solutions from within HC and hoping the business notices. The right sequence is reversed — understand the business transformation agenda first, then design HC's contribution to it. That is the principle I bring, and it is how this engagement would begin.</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — HOW I THINK
+══════════════════════════════════════ -->
+<section id="thinking">
+  <div class="section-tag">02 — How I Think About People Strategy</div>
+  <h2 class="stitle reveal">Outside-In.<br><em>Evidence Before Prescription.</em></h2>
+  <p class="sintro reveal">The most common failure mode in people strategy is starting from within the HC function — designing solutions and hoping the business notices. The work that creates lasting value starts from the outside: with business strategy, competitive context, and what the organisation actually needs its people to be capable of doing differently.</p>
+
+  <div class="principle-grid reveal">
+    <div class="pc">
+      <div class="pc-num">// PRINCIPLE 01</div>
+      <div class="pc-title">Business context before HC design</div>
+      <p class="pc-text">A people strategy that isn't rooted in what the business is trying to become is a people programme. The first obligation is to understand Hollard's strategic direction deeply enough to make HC a genuine contributor to business outcomes — anticipating what the organisation needs before it needs to ask.</p>
+      <div class="pc-insight">HC functions create their greatest value when they move the conversation from "what does HR deliver?" to "what does this business need its people to be capable of?" The sequence matters.</div>
+    </div>
+    <div class="pc">
+      <div class="pc-num">// PRINCIPLE 02</div>
+      <div class="pc-title">Diagnose before designing</div>
+      <p class="pc-text">Organisations that have been through significant change carry complexity that isn't visible from the outside. Before designing anything, I invest time understanding what's actually happening: what leaders believe is true, what employees experience as real, and where the gap between intention and reality actually sits.</p>
+      <div class="pc-insight">The presenting problem is rarely the real problem. Listening at depth — before forming recommendations — is itself a strategic act, and one that builds the credibility that makes everything else possible.</div>
+    </div>
+    <div class="pc">
+      <div class="pc-num">// PRINCIPLE 03</div>
+      <div class="pc-title">Co-design over imposition</div>
+      <p class="pc-text">People strategies that are built with leaders — not for them — have a fundamentally different adoption profile. The HC Strategy executive brings rigour, challenge and provocation; the organisation brings context, legitimacy and commitment. Neither works without the other, and the best strategies are genuinely co-authored.</p>
+      <div class="pc-insight">The organisations with the most effective HC functions treat people strategy as a shared leadership responsibility — not an HC deliverable that leaders are asked to endorse.</div>
+    </div>
+    <div class="pc">
+      <div class="pc-num">// PRINCIPLE 04</div>
+      <div class="pc-title">Iterative commitment, not big-bang delivery</div>
+      <p class="pc-text">Transformation portfolios that are sequenced, piloted and adjusted consistently outperform those built on comprehensive upfront design. I commit to hypotheses early and to scaled delivery only when evidence supports it — building credibility through demonstrated value on short cycles rather than through the ambition of the plan alone.</p>
+      <div class="pc-insight">Quick wins build trust. Trust enables the harder work. The goal is not to have the most impressive strategy at Month 1. It is to have the most durable one at Year 3.</div>
+    </div>
+    <div class="pc">
+      <div class="pc-num">// PRINCIPLE 05</div>
+      <div class="pc-title">Analytics that change conversations</div>
+      <p class="pc-text">People analytics has its greatest impact when it changes the quality of the decision-making conversation — not when it replaces it. I build data capability around the decisions leaders are already trying to make, not around producing reports that demonstrate the HC function is active.</p>
+      <div class="pc-insight">The measure of a mature people analytics function is not how much data it produces. It is how many better decisions it enables — and whether leaders reach for it when facing their hardest calls.</div>
+    </div>
+    <div class="pc">
+      <div class="pc-num">// PRINCIPLE 06</div>
+      <div class="pc-title">Culture is a leadership behaviour, not an HC programme</div>
+      <p class="pc-text">The most durable cultures are ones where leaders own them through daily decisions — not ones where HC runs the engagement process and presents the results. The role of HC is to design the conditions, name the expectations and hold the mirror. Then step back and let leadership lead.</p>
+      <div class="pc-insight">Culture change begins and ends with what leaders model, tolerate and reward. Everything else — the frameworks, the academies, the values work — is supporting infrastructure for that accountability.</div>
+    </div>
+  </div>
+
+  <div class="hl-green reveal">
+    <strong>On the thinking behind the thinking:</strong> Two bodies of work meaningfully shape how I approach this role. The idea that HC creates its greatest value when it starts from the business context outward — not from HR process inward — is a principle I've seen validated across every organisation I've worked with. It fundamentally changes what gets prioritised, how HC earns credibility, and how quickly it moves from support function to strategic partner. Separately, the research on what distinguishes high-impact HC functions from average ones consistently points to the same factors: how embedded HC is in business decision-making, how much leaders genuinely own people outcomes, and how well the function anticipates capability needs before the business names them. Neither insight is particularly controversial — but both are surprisingly rare in practice.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 3 — WHY VIKASH
+══════════════════════════════════════ -->
+<section id="positioning">
+  <div class="section-tag">03 — Why Vikash Manik</div>
+  <h2 class="stitle reveal">A Transformation Executive<br><em>Who Happens to Lead People Strategy</em></h2>
+  <p class="sintro reveal">Most candidates for this role are people professionals with exposure to change. What I bring is different — a career built at the intersection of business transformation, technology modernisation and workforce strategy, in organisations that were under real competitive pressure to change how they operated, not just how they managed people.</p>
+
+  <!-- NEDBANK IT STANDALONE CALLOUT -->
+  <div style="border:1px solid var(--gold);background:rgba(200,146,58,0.06);padding:2.5rem;margin-bottom:2.5rem;" class="reveal">
+    <div style="font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:1rem;">// The Experience You Will Not Find in an HC Candidate</div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--cream);margin-bottom:1rem;">Nedbank Group — Group IT Transformation Office</h3>
+    <p style="font-size:0.95rem;color:rgba(245,239,228,0.85);line-height:1.85;margin-bottom:1.2rem;">From 2015 to 2018, I held the role of Head: Change &amp; Transformation within Nedbank's Group IT Transformation Office — sitting across the bank's entire portfolio of technology change initiatives as the transformation executive responsible for change governance, methodology, and value realisation. This was not an HC business partner role supporting a technology function. It was a transformation leadership mandate embedded inside one of South Africa's most complex IT modernisation agendas.</p>
+    <p style="font-size:0.95rem;color:rgba(245,239,228,0.85);line-height:1.85;margin-bottom:1.2rem;">The portfolio I governed spanned core banking modernisation, application rationalisation, workforce management and the compliance programme change management office — covering staffing models, change methodology standards and practitioner governance across all run and change programmes. On core banking specifically, the programme had its own delivery structure and leadership. My role was portfolio-level: oversight, adoption monitoring and value acceleration, with committee-level decision rights on operating model changes as they affected the broader organisation.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem;">
+      <div style="padding:1rem;background:rgba(12,34,24,0.7);border:1px solid var(--lineg);">
+        <div style="font-size:0.7rem;color:var(--gold);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;">Portfolio scope</div>
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;">Core banking modernisation, application rationalisation, workforce management, compliance programme change office — change governance and methodology across all Group IT programmes</div>
+      </div>
+      <div style="padding:1rem;background:rgba(12,34,24,0.7);border:1px solid var(--lineg);">
+        <div style="font-size:0.7rem;color:var(--gold);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;">Decision authority</div>
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;">Committee-level oversight and value acceleration decision-making on operating model changes; designed Group IT and Retail Banking Business operating models; built the Digital Innovation division business case</div>
+      </div>
+      <div style="padding:1rem;background:rgba(12,34,24,0.7);border:1px solid var(--lineg);">
+        <div style="font-size:0.7rem;color:var(--gold);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;">Why it matters for Hollard</div>
+        <div style="font-size:0.82rem;color:var(--muted);line-height:1.7;">I have governed a large-scale technology transformation portfolio from inside the machine — with operating model authority, not just advisory access. That is a meaningfully different vantage point from which to lead Hollard's AI and business modernisation agenda.</div>
+      </div>
+    </div>
+    <p style="font-size:0.85rem;color:var(--gold2);font-style:italic;margin-top:1.5rem;border-top:1px solid var(--lineg);padding-top:1rem;">Very few People Strategy executives have sat inside a bank's IT transformation office with portfolio governance authority, committee-level decision rights on operating model changes, and direct accountability for value realisation across a technology modernisation programme — and then gone on to build board-level succession frameworks and multi-country culture transformation at scale. That is the combination that makes the AI workforce readiness and business transformation agenda at Hollard something I can lead with earned authority.</p>
+  </div>
+
+  <div class="hl reveal"><strong>The integrated differentiator:</strong> I am one of a small number of practitioners who concurrently delivers Organisational Design, Enterprise Change Management and Workforce &amp; Talent Transformation — grounded in real technology and business transformation experience, not in HC frameworks applied to technology contexts. In a role that demands programme leadership, change architecture and CPO thought partnership across a business undergoing structural disruption, that combination is not supplementary. It is the job.</div>
+
+  <h2 class="stitle reveal" style="font-size:1.6rem;margin-bottom:1.3rem;">Where My Experience Speaks to Hollard's Agenda</h2>
+  <table class="map-table reveal">
+    <thead>
+      <tr><th>Hollard's Agenda</th><th>What Most Candidates Offer</th><th>What I Bring</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="need">Business transformation enablement — not just HC transformation</td>
+        <td class="generic">People strategy designed inside the HC function, presented to the business</td>
+        <td class="vikash">Led business and IT modernisation programmes at Nedbank from inside Group Technology — designed operating models for Digital Innovation, core banking and Retail Banking Business. HC strategy always started from business context outward</td>
+      </tr>
+      <tr>
+        <td class="need">AI and automation people readiness — owned, not supported</td>
+        <td class="generic">Digital skills assessment, e-learning rollout, change communication</td>
+        <td class="vikash">Held stand-in CTO mandate at Nedbank during core banking modernisation; led Workday adoption (ABB, 14+ countries) and SAP SuccessFactors (Nedbank) — workforce transition, adoption measurement and resistance management from inside the technology transformation, not alongside it</td>
+      </tr>
+      <tr>
+        <td class="need">Executive thought partnership to the CPO on business strategy</td>
+        <td class="generic">Executive presentation and committee support</td>
+        <td class="vikash">Head: Change &amp; Transformation in Nedbank's Group IT Transformation Office — committee-level decision rights on operating model changes across the full technology portfolio; NOMCO/REMCO reporting at Multichoice; HC Strategic Planning Office integrated with Group Finance across 50+ countries</td>
+      </tr>
+      <tr>
+        <td class="need">Enterprise change management at scale — multi-country, multi-domain</td>
+        <td class="generic">Communication plans, change champion networks, ADKAR training</td>
+        <td class="vikash">PROSCI/ADKAR certified; 22-country change management office (MTN — HR, Finance, SCM, Marketing, EAM simultaneously); 40-country change programme (Multichoice); Nedbank Group IT Change Office built from scratch</td>
+      </tr>
+      <tr>
+        <td class="need">Culture as a strategic asset through disruption</td>
+        <td class="generic">Engagement surveys, values refresh, culture ambassador programmes</td>
+        <td class="vikash">Sustained Multichoice culture through pandemic, Naspers separation and JSE listing simultaneously — embedding cultural expectations into governance structures and performance architecture, not into programme activity</td>
+      </tr>
+      <tr>
+        <td class="need">People analytics that earns leadership trust</td>
+        <td class="generic">HR dashboard design, HRIS optimisation, survey reporting</td>
+        <td class="vikash">Built workforce cost forecasting integrated with Group Finance at Multichoice; enterprise HC dashboards at Omnia (27 countries); analytics built around the decisions leaders needed to make, not around HC reporting requirements</td>
+      </tr>
+      <tr>
+        <td class="need">Pan-African business and workforce complexity</td>
+        <td class="generic">Regional HR policy harmonisation managed from a centre</td>
+        <td class="vikash">20 years of in-market HC leadership across SA, Nigeria, Kenya, Mozambique, Botswana, Ghana, Zambia — Hollard's HINT footprint, with regulatory, cultural and operational depth earned on the ground in each market</td>
+      </tr>
+      <tr>
+        <td class="need">B-BBEE, ESG and social impact as integrated strategy</td>
+        <td class="generic">Compliance reporting, scorecard management, standalone DEI programmes</td>
+        <td class="vikash">Delivered B-BBEE Level 1 at Multichoice across 14 SA entities on a flat budget — integrated into workforce planning, skills development and equity governance as a business discipline, not a parallel compliance track</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="stitle reveal" style="font-size:1.6rem;margin-top:3.5rem;margin-bottom:1.2rem;">The Specific Advantages</h2>
+  <div class="advs reveal">
+    <div class="adv">
+      <div class="adv-bar"></div>
+      <p class="adv-body"><strong>Technology transformation portfolio governance — from the inside:</strong> Most People Strategy executives have been briefed on technology transformation. I have governed one — sitting inside Nedbank's Group IT Transformation Office with portfolio-level authority across core banking, application rationalisation, workforce management and compliance change programmes. I held committee-level decision rights on operating model changes and was accountable for value realisation, not just change adoption. That is a meaningfully different vantage point from which to lead Hollard's AI and business modernisation agenda.</p>
+    </div>
+    <div class="adv">
+      <div class="adv-bar"></div>
+      <p class="adv-body"><strong>Regulated industry fluency, earned not studied:</strong> Hollard operates in the same governance environment as banking — FSCA oversight, risk-adjusted decision-making, RemCo accountability, board-level talent reporting. My work at Standard Bank, Nedbank and Grindrod means I bring that fluency natively. HC credibility in a regulated financial services organisation is partly earned by not needing to be explained to about how governance works.</p>
+    </div>
+    <div class="adv">
+      <div class="adv-bar"></div>
+      <p class="adv-body"><strong>The HINT footprint match:</strong> Hollard International operates in Mozambique, Botswana, Kenya, Ghana, Zambia, Uganda and Tanzania. I have led HC programmes across exactly these markets — operationally, with in-country stakeholders, local regulatory context and cultural nuance that cannot be managed remotely. When the HINT integration questions arise, I have been in those rooms before.</p>
+    </div>
+    <div class="adv">
+      <div class="adv-bar"></div>
+      <p class="adv-body"><strong>Culture through structural disruption — not alongside it:</strong> At Multichoice, I built culture through the most operationally disruptive period in the company's history — pandemic, Naspers separation, JSE listing, leadership transition, all concurrent. Culture survived because it was made structural: embedded in governance, in what performance management rewarded, and in the leadership development architecture — not carried by an engagement programme.</p>
+    </div>
+    <div class="adv">
+      <div class="adv-bar"></div>
+      <p class="adv-body"><strong>Build and scale, not just design:</strong> I've built HC functions and change offices from scratch (Omnia Group, Nedbank IT Change Office) and scaled complex ones through disruption (Multichoice, MTN). Holding both — the architectural thinking and the delivery discipline — at the pace that a business under competitive pressure requires is the combination this role needs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 4 — APPROACH
+══════════════════════════════════════ -->
+<section id="approach">
+  <div class="section-tag">04 — How I'd Work</div>
+  <h2 class="stitle reveal">Discover First.<br><em>Design Together. Deliver with Evidence.</em></h2>
+  <p class="sintro reveal">I'm not arriving with a pre-built strategy. I'm arriving with a structured way of discovering what Hollard's strategy should be — shaped by your leadership priorities, your organisation's lived experience, and the evidence that emerges from genuine diagnostic work before any significant commitment is made.</p>
+
+  <div class="approach-intro reveal">
+    <div class="approach-card">
+      <div class="approach-card-title">What I commit to on arrival</div>
+      <p class="approach-card-text">Deep listening. Structured inquiry. An honest diagnostic of where the HC function is, what the organisation needs it to become, and what the distance between those two things actually requires. I'll form hypotheses — not conclusions — and share them openly so the CPO and Exco can test them against their own insight. Collaboration from the first conversation.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-card-title">What I hold back until I've earned the right to recommend</div>
+      <p class="approach-card-text">A fixed 12-month plan. A pre-determined target operating model. A culture architecture designed before I've spent time in the organisation. The most durable people strategies I've built all started with patience about recommendations and urgency about understanding. That discipline is what I bring — and it is what I believe Hollard deserves.</p>
+    </div>
+  </div>
+
+  <h2 class="stitle reveal" style="font-size:1.6rem;margin-bottom:0.5rem;">Four Horizons — Adaptive, Evidence-Led</h2>
+  <p style="font-size:0.9rem;color:var(--muted);max-width:660px;margin-bottom:1.5rem;" class="reveal">Commitment increases only as insight and evidence accumulate. Each horizon builds on what the previous one reveals. Quick wins in early horizons build the trust that enables the harder, more structural work in later ones.</p>
+
+  <div class="phases reveal">
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="pl-tag">Horizon 1</div>
+        <div class="pl-period">Weeks 1–4</div>
+        <div class="pl-commit">Commitment level: Hypotheses only — no recommendations yet</div>
+      </div>
+      <div class="phase-body-col">
+        <div class="ph-title">Assess — Listen, Map, Understand the Real Landscape</div>
+        <div class="ph-framing">The goal here is not to form conclusions. It is to earn the right to have a view.</div>
+        <div class="ph-items">
+          <div class="ph-item"><div class="ph-dot"></div><span>Structured listening sessions: CPO, Exco sponsors, Group HRBPs, HC team leads, cross-section of employees — SA and HINT markets</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>HC function diagnostic: current capability, initiative inventory, what's working, what leaders believe is missing — without prejudging the answer</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>People data landscape: what exists, what's trusted, what decisions it is and isn't currently enabling at leadership level</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>Culture signal: qualitative and quantitative read from leaders and employees — listening for the gap between the stated identity and the lived experience</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>AI and automation context: where Hollard actually is in its transition, and which workforce readiness concerns are live versus anticipated</span></div>
+        </div>
+        <div class="ph-del">→ Output: Diagnostic perspective shared with CPO — 3 to 5 priority hypotheses, explicitly framed as working assumptions for challenge and debate</div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="pl-tag">Horizon 2</div>
+        <div class="pl-period">Weeks 5–10</div>
+        <div class="pl-commit">Commitment level: Draft priorities — co-authored, not presented</div>
+      </div>
+      <div class="phase-body-col">
+        <div class="ph-title">Design — Build the Strategy Together with Leadership</div>
+        <div class="ph-framing">Workshops, not slide decks. Co-authorship, not the presentation of conclusions reached elsewhere.</div>
+        <div class="ph-items">
+          <div class="ph-item"><div class="ph-dot"></div><span>ExCo co-design sessions: translate diagnostic findings into a shared People Strategy — priorities sequenced by business impact and organisational readiness</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>HC Target Operating Model — designed around what the business needs, tested with HRBPs and business leaders before any commitment to structure</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>Transformation portfolio framing: initiatives mapped, dependencies identified, benefit logic articulated — built with OKR anchors for measurability and adaptability over time</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>People analytics roadmap: starting from the decisions leaders most need to make better — data capability built around those specific needs, not around what's available</span></div>
+        </div>
+        <div class="ph-del">→ Output: Co-authored People Strategy Blueprint — owned by the CPO and Exco, not delivered to them by HC</div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="pl-tag">Horizon 3</div>
+        <div class="pl-period">Months 3–7</div>
+        <div class="pl-commit">Commitment level: Scaled only where evidence supports it</div>
+      </div>
+      <div class="phase-body-col">
+        <div class="ph-title">Pilot &amp; Iterate — Test, Measure, Adjust Deliberately</div>
+        <div class="ph-framing">Scale what works. Stop what doesn't. Adjust everything in between. Credibility is built through demonstrated value, not through the ambition of the plan.</div>
+        <div class="ph-items">
+          <div class="ph-item"><div class="ph-dot"></div><span>Pilot 2–3 high-impact, short-cycle initiatives — selected for their ability to demonstrate value quickly and build confidence in the broader strategy</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>Embed operating rhythm: HC Leadership Forum, CPO ExCo reporting cadence, portfolio review — the governance infrastructure that sustains delivery momentum</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>Culture activation: leader-owned, HC-designed — not HC programmes, but leadership commitments made visible through behaviour, decision-making and what gets rewarded</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>AI workforce readiness: reskilling pathways, change readiness measurement, manager enablement — piloted in one business unit before any enterprise-wide rollout</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>Formal iteration built into the cycle — adjustments treated as designed responsiveness, not as course-correction when things go wrong</span></div>
+        </div>
+        <div class="ph-del">→ Output: Benefits dashboard — what has landed, what has been adjusted, what is next; shared at Exco quarterly with full transparency</div>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-label-col">
+        <div class="pl-tag">Horizon 4</div>
+        <div class="pl-period">Month 8+</div>
+        <div class="pl-commit">Commitment level: Full — grounded in evidence, endorsed by Exco</div>
+      </div>
+      <div class="phase-body-col">
+        <div class="ph-title">Embed &amp; Sustain — Make It Self-Reinforcing</div>
+        <div class="ph-framing">The mark of a successful people strategy is not that HC is indispensable to it. It is that leaders own it and the organisation sustains it beyond any individual's tenure.</div>
+        <div class="ph-items">
+          <div class="ph-item"><div class="ph-dot"></div><span>HC TOM fully operational — HINT markets included, governance embedded, HRBPs elevated to genuine strategic partnership with business leadership</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>Culture operating as leadership architecture — visible in onboarding, performance, succession and the decisions leaders make when it is difficult</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>Analytics in active leadership use — leaders reaching for data to make decisions, not waiting for HC to interpret it on their behalf</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>AI transition embedded — workforce readiness tracked, reskilling active, adoption measured across all business units with integrity</span></div>
+          <div class="ph-item"><div class="ph-dot"></div><span>Honest Year 1 review: benefits realised versus intended, with Year 2 priorities co-designed again with leadership — not inherited from Year 1 assumptions</span></div>
+        </div>
+        <div class="ph-del">→ Output: Year 1 HC Impact Report — presented at Board level; Year 2 strategy co-authored with Exco, not predetermined</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hl reveal" style="margin-top:2.5rem;"><strong>On portfolio discipline:</strong> Each initiative in the HC transformation portfolio will carry a clear hypothesis, a defined pilot scope, measurable adoption and benefit indicators, and an explicit decision point — scale, adjust, or stop. This protects Hollard's investment, maintains ExCo confidence through complexity, and ensures that commitment follows evidence rather than preceding it.</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SECTION 5 — MEASURES
+══════════════════════════════════════ -->
+<section id="metrics">
+  <div class="section-tag">05 — What Success Looks Like</div>
+  <h2 class="stitle reveal">Indicators,<br><em>Not Scorecards</em></h2>
+  <p class="sintro reveal">I'm wary of pre-defining precise targets before understanding Hollard's baseline and what "good" actually means in your specific context. These are the indicators I'd expect to track — the thresholds would be set collaboratively with the CPO once the diagnostic is complete and the baseline is understood.</p>
+
+  <div class="met-grid reveal">
+    <div class="met-card">
+      <div class="met-label">HC Strategic Influence</div>
+      <div class="met-num">ExCo</div>
+      <div class="met-desc">HC demonstrably shaping business decisions at ExCo level — not just reporting into them</div>
+    </div>
+    <div class="met-card">
+      <div class="met-label">Culture Health</div>
+      <div class="met-num">↑ Trend</div>
+      <div class="met-desc">Improving engagement and belonging — with qualitative depth, not just survey movement</div>
+    </div>
+    <div class="met-card">
+      <div class="met-label">AI Workforce Readiness</div>
+      <div class="met-num">Adopted</div>
+      <div class="met-desc">Impacted employees in active reskilling — adoption measured, not just completion tracked</div>
+    </div>
+    <div class="met-card">
+      <div class="met-label">Portfolio Health</div>
+      <div class="met-num">On-benefit</div>
+      <div class="met-desc">Initiatives delivering intended value — tracked against hypothesis, not timeline alone</div>
+    </div>
+    <div class="met-card">
+      <div class="met-label">Analytics in Use</div>
+      <div class="met-num">Leader-led</div>
+      <div class="met-desc">Leaders actively using people data for decisions — not waiting for HC to interpret for them</div>
+    </div>
+    <div class="met-card">
+      <div class="met-label">Talent Retention</div>
+      <div class="met-num">↓ Risk</div>
+      <div class="met-desc">Regrettable attrition declining — flight risk identified early, not discovered at exit</div>
+    </div>
+    <div class="met-card">
+      <div class="met-label">HINT People Coherence</div>
+      <div class="met-num">10 mkts</div>
+      <div class="met-desc">EVP and culture operating consistently across HINT — locally adapted, not locally abandoned</div>
+    </div>
+    <div class="met-card">
+      <div class="met-label">CPO Partnership Quality</div>
+      <div class="met-num">Partner</div>
+      <div class="met-desc">CPO describes the working relationship as genuine strategic partnership — not senior administrative support</div>
+    </div>
+  </div>
+
+  <div class="hl-green reveal"><strong>On measurement philosophy:</strong> The HC functions with the deepest organisational impact are those that stopped measuring activity and started measuring influence — on decisions, on capability, on business outcomes. The indicators above are intentionally outcome-oriented. The leading indicators that predict them — and the baselines from which improvement is measured — will emerge from the diagnostic work in Horizon 1. Setting them now would be premature.</div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CLOSING
+══════════════════════════════════════ -->
+<section id="closing">
+  <div class="section-tag" style="justify-content:center;margin-bottom:2rem;">06 — Why This Matters</div>
+  <p class="closing-q reveal">"The insurance industry is being reshaped. The organisations that will compete effectively in that environment are the ones that build <em>organisational capability</em> as a strategic priority — not as a response to disruption, but as preparation for it."</p>
+
+  <div class="hl reveal" style="max-width:740px;margin:0 auto 3rem;text-align:left;">
+    What I'm offering Hollard is not a people strategy. It is a business transformation perspective, expressed through the language and discipline of people strategy. I've led technology modernisation programmes from inside Group Technology. I've built operating models for digital businesses. I've governed transformation portfolios under real competitive pressure. And I've done all of it while building the human capability, cultural resilience and leadership depth that makes transformation stick. <strong>That combination — technology and business transformation fluency, grounded in 20 years of people leadership — is what this moment at Hollard requires.</strong>
+  </div>
+
+  <div class="cred-row reveal">
+    <div class="cred-pill"><div class="cred-val">40+</div><div class="cred-lbl">Countries led</div></div>
+    <div class="cred-pill"><div class="cred-val">6×</div><div class="cred-lbl">Operating model designs</div></div>
+    <div class="cred-pill"><div class="cred-val">R490m</div><div class="cred-lbl">Savings mandate delivered</div></div>
+    <div class="cred-pill"><div class="cred-val">20yr</div><div class="cred-lbl">Executive people leadership</div></div>
+  </div>
+
+  <div class="hero-btns" style="justify-content:center;opacity:1;animation:none;margin-bottom:2.5rem;">
+    <a href="mailto:vikash.manik@gmail.com" class="btn btn-primary">Start the Conversation</a>
+    <a href="https://linkedin.com/in/vikash-manik-50890313" target="_blank" class="btn btn-outline">LinkedIn</a>
+  </div>
+
+  <div class="contact-strip reveal">
+    <span>vikash.manik@gmail.com</span><span class="sep">|</span>
+    <span>+27 83 780 0062</span><span class="sep">|</span>
+    <a href="https://theoecoach.com" target="_blank">theoecoach.com</a><span class="sep">|</span>
+    <span>Johannesburg · Relocating: Mauritius · UAE · EMEA · APAC</span>
+  </div>
+</section>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    const el=document.documentElement;
+    const pct=(el.scrollTop/(el.scrollHeight-el.clientHeight))*100;
+    document.getElementById('progress').style.width=pct+'%';
+  });
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.07});
+  document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
